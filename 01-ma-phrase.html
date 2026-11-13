@@ -53,17 +53,24 @@
 </div>
 
 <script type="text/javascript">
-    const MY_TABLEAU = [];
+    const MON_TABLEAU = [];
 
     function analyze() {
             let maPhrase = document.getElementById("sentence").value
 
             if (maPhrase.length >= 5){
-                let nombreCaractere = maPhrase.string(5);
+                let nombreCaractere = maPhrase.length;
                 let cinquemeCaractere = maPhrase.substr(5, 1);
-                console.log(nombreCaractere);
+                let troispremierCaractere = maPhrase.substr(0, 3);
+                let troisDerniercaractere = maPhrase.substr(-3, 3);
+
+                MON_TABLEAU.push(nombreCaractere, cinquemeCaractere, troispremierCaractere, troisDerniercaractere);
                 
+            }else{
+                alert("Veuillez rentrer une phrase");
             }
+
+            displayArray(MON_TABLEAU);
             // CODE HERE !
     }
 
