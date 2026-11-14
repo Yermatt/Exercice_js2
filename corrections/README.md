@@ -9,9 +9,9 @@ Deux versions proposées pour aboutir au même résultat :
 ### Exo 2 - Comptage des mots
 Deux versions proposées :
 - **v1** : réponse simple de premier niveau (pas de traitment de la ponctuation ni des espaces multiples).  
-  Dans cette version, on compte le nombre d'espaces de la phrase saisie et on considère que le nombre de mots correspond au nombre d'espaces + 1. Par exemple, si il y a 6 espaces, il y a 7 mots.
+  Dans cette version, on compte le nombre d'espaces de la phrase saisie et on considère que le nombre de mots correspond au nombre d'espaces + 1. Par exemple, si il y a 6 espaces, il y a 7 mots.  
   *Merci à Florian S. pour sa contribution.*
-- **v2** : réponse plus avancée (le bonus) qui gère :
-  - les espaces parasites (début et fin de phrase, rebonds),
+- **v2** : réponse plus avancée (bonus) qui gère :
+  - les espaces parasites (en début et en fin de phrase, les rebonds),
   - les caractères de ponctuation (y compris ceux qui ne respectent pas les règles d'écriture du français),
-  -  le caractère apostrophe.
+  - le caractère apostrophe.
