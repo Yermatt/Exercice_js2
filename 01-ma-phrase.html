@@ -53,24 +53,26 @@
 </div>
 
 <script type="text/javascript">
-    const MON_TABLEAU = [];
+    const TAB_ANALYSE = [];
 
     function analyze() {
             let maPhrase = document.getElementById("sentence").value
 
+            // Si ma phrase à 5 caractère ou plus, alors initialise les variable et ajoute les résultat au tableau
             if (maPhrase.length >= 5){
                 let nombreCaractere = maPhrase.length;
                 let cinquemeCaractere = maPhrase.substr(5, 1);
                 let troispremierCaractere = maPhrase.substr(0, 3);
-                let troisDerniercaractere = maPhrase.substr(-3, 3);
+                let troisDernierCaractere = maPhrase.substr(-3, 3);
 
-                MON_TABLEAU.push(nombreCaractere, cinquemeCaractere, troispremierCaractere, troisDerniercaractere);
+                TAB_ANALYSE.push(nombreCaractere, cinquemeCaractere, troispremierCaractere, troisDernierCaractere);
                 
             }else{
                 alert("Veuillez rentrer une phrase");
             }
 
-            displayArray(MON_TABLEAU);
+            displayArray(TAB_ANALYSE);
+            return TAB_ANALYSE;
             // CODE HERE !
     }
 

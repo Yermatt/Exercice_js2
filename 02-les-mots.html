@@ -45,6 +45,7 @@
     <label>Ma phase</label>
     <br/>
     <input type="text" id="sentence" placeholder="Votre phrase"/>
+    <div id="alertZone"></div>
 
     <button type="button" class="btn btn-primary" onclick="countWords()">
         Compter les mots
@@ -52,11 +53,35 @@
 </div>
 
 <script type="text/javascript">
+    let alertZone = document.getElementById("alertZone");
 
     function countWords() {
-        // CODE HERE ! 
+        const my_sentence = document.getElementById("sentence").value;
+        let space = true;
+        let words = 0;
+        
+        for (let i = 0; i < my_sentence.length; i++){ // Pour chaque index de ma phrase
+            if (my_sentence[i] === " " ||
+                my_sentence[i] === "?" ||
+                my_sentence[i] === "!" ||
+                my_sentence[i] === ";" ||
+                my_sentence[i] === ":" ||
+                my_sentence[i] === "," ||
+                my_sentence[i] === "'"  
+            ){
+                space = true;              // Si c'est un espace ou une ponctuation alors space devient true
+            }else{                 
+                // Si espace est true, compte l'index comme le début d'un mot, ajoute 1 à mots, puis repasse à false
+                if (space === true){   
+                    words++;
+                    space = false;
+                }
+            }
+        }
+        
+        
+        return alertZone.textContent = "Il y a " + words + " mots"; 
     }
-
 </script>
 </body>
 </html>
