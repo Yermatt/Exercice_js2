@@ -59,29 +59,41 @@
         const my_sentence = document.getElementById("sentence").value;
         let space = true;
         let words = 0;
-        
-        for (let i = 0; i < my_sentence.length; i++){ // Pour chaque index de ma phrase
-            if (my_sentence[i] === " " ||
-                my_sentence[i] === "?" ||
-                my_sentence[i] === "!" ||
-                my_sentence[i] === ";" ||
-                my_sentence[i] === ":" ||
-                my_sentence[i] === "," ||
-                my_sentence[i] === "'"  
-            ){
-                space = true;              // Si c'est un espace ou une ponctuation alors space devient true
-            }else{                 
-                // Si espace est true, compte l'index comme le début d'un mot, ajoute 1 à mots, puis repasse à false
-                if (space === true){   
-                    words++;
+
+        for (let i = 0; i < my_sentence.length; i++){
+            // Si c'est un espace ou une ponctuation
+            if (my_sentence[i] === " " || my_sentence[i] === "?" || my_sentence[i] === "!" || my_sentence[i] === ":" || my_sentence[i] === ";" || my_sentence[i] === "," || my_sentence[i] === "'"){
+                space = true;
+            }else{ // si c'est false, du à la boucle d'avant ne fait rien 
+                if (space === true){ // sinon si c'est true, alors compte un mot, puis repasse à false pour qu'il ne fasse rien
+                    words++
                     space = false;
                 }
             }
         }
-        
-        
+
         return alertZone.textContent = "Il y a " + words + " mots"; 
     }
+
+   // ------------------------------CORRECTION POSSIBLE : ---------------------------------------------
+    function countWords() {
+        let inputText = document.getElementById("sentence").value;
+        let inputLength = inputText.length;
+        let previousChar = ' ';     // previous character storage
+                                    // at starting point, it simulates space character at virtual position -1
+        let count = 0;
+
+        inputText = inputText.replace(/[;:?!,']/g, " "); // suggested insertion to reach the "super banco"
+
+        for (let i=0; i<inputLength; i++){
+            let currentChar = inputText.charAt(i);
+            if ((currentChar !== previousChar) && (previousChar === ' ')) count++;
+            previousChar = currentChar;     // the currect char becomes the previous char for the next iteration
+        }
+        alert(`Nombre de mots : ${count}`);
+    }
+
+
 </script>
 </body>
 </html>

@@ -56,12 +56,14 @@
 
     <label>Nouvelle note ?</label>
     <input type="text" id="note" placeholder="Nouvelle note (optionnelle)"/>
+    <div id="alertZone"></div>
     <button type="button" class="btn btn-primary" onclick="refreshAverage()">
         (Re)calculer la moyenne
     </button>
 </div>
 
 <script type="text/javascript">
+    let alertZone = document.getElementById("alertZone")
 
     // notes de départ
     let notes = [8.75, 14, 13, 5.5];
@@ -73,19 +75,37 @@
      * Retour : la moyenne calculée
      */
 
-    function average() {
-        // CODE HERE !
+    function average(noteArray) {
+        if (noteArray.length === 0){
+            alertZone.textContent = "Il n'y a pas de note";
+            return // Ne pas oublier le return pour arrêter la fonction
+        }
 
+        let somme = 0;
+
+        noteArray.forEach(note => {
+            somme += note;
+        });
+
+        return alertZone.textContent = "la moyenne est de " + (somme / noteArray.length).toFixed(2);// CODE HERE !
     }
     /*
      * Fonction appelée lors du 'clic' sur le bouton
      * Parameters: 
-     * Return:
+     * Return: Une alerte avec la nouvelle moyenne calculé
      */
 
     function refreshAverage() {
-        // CODE HERE !
-
+        //Utilisé parseFloat pour récupéré la valeur réel: 9, et pas le STRING du chiffre : "9"
+        let newNote = parseFloat(document.getElementById("note").value);
+        if (newNote >= 0 && newNote <= 20){ // si le chiffre rentré est valide, alors ajoute le dans le tableau des notes.
+            notes.push(newNote);
+            average(notes); // si il est valide, alors calcule la nouvelle moyenne
+            return displayArray(notes);
+        }else{ // si il n'est pas valide, mettre un message d'erreur
+            alertZone.textContent = "Veuillez rentrez un nombre compris entre 0 et 20";
+            return;
+        } // CODE HERE !  
     }
 
 </script>

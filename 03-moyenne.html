@@ -34,22 +34,44 @@
     <button type="button" class="btn btn-primary" onclick="average(notes)">
         Calculer la moyenne
     </button>
+    <div id="alertZone"><br></div>
 </div>
 
 <script type="text/javascript">
+    let alertZone = document.getElementById("alertZone");
 
     // Tableau des notes obtenues
     const notes = [8.75, 14, 13, 5.5, 9, 17, 11.25];
 
     /*
-     * Ici le commentaire sur la fonction average...
+     * Initialise la note à 0, pour la boucle dans chaque index du tableau note, additionne chaque note
+        Ensuite retourne le résultat divisé par le nombre de note puis arrondie la à 2 chiffres après la virgule
      */
 
     function average(noteArray) {
-        // CODE HERE !
-        
-    }
+        /* Moyenne For of */
+        // if (noteArray.length === 0){
+        //     return alertZone.textContent = "Il n'y a pas de moyenne à calculé";
+        // }
 
+        // let somme = 0;
+
+        // for (let note of noteArray){
+        //     somme = note + somme;
+        // }
+        
+        /* Moyenne foreach*/
+        if (noteArray.length === 0){
+            return alertZone.textContent = "Il n'y a pas de moyenne à calculé";
+        }
+        let somme = 0;
+
+        noteArray.forEach(function(note){
+            somme += note;
+        });
+
+        return alertZone.textContent = "la moyenne est de " + (somme / noteArray.length).toFixed(2);
+    }
 
 </script>
 </body>
