@@ -14,5 +14,8 @@ Array, boucles (*foreach*), structures conditionnelles, appel des fonctions, rob
 
 Exercice #04 - La moyenne évolutive
 
+### Boucles (for) imbriquées
+Exercice #05 - Pyramide
+
 ### Boucle while et structures conditionnelles
-Exercice #05 - Le nombre secret
+Exercice #06 - Le nombre secret
