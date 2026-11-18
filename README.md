@@ -13,3 +13,9 @@ Exercice #03 - La moyenne
 Array, boucles (*foreach*), structures conditionnelles, appel des fonctions, robustesse du code...  
 
 Exercice #04 - La moyenne évolutive
+
+### Boucles (for) imbriquées
+Exercice #05 - Pyramide
+
+### Boucle while et structures conditionnelles
+Exercice #06 - Le nombre secret
