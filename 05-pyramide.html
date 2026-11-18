@@ -45,10 +45,17 @@
 <script type="text/javascript">
 
     function draw() {
-
-        // CODE HERE !
-        
+        let inputNumber = parseInt(document.getElementById("height").value);
+        let n = inputNumber;
+         
+        for (let i = 1; i < n+1; i++){ 
+            let ligne = " "; 
+            for (let j = 1; j < i; j++){
+                ligne = ligne + i + " ";
+            }
+            console.log(ligne + i);     // CODE HERE !  
     }
+}
 
 </script>
 </body>
